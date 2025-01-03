@@ -1,0 +1,43 @@
+we follow the convention below
+
+xxx is treated as int
+(float point number must have a decimal point)
+xxx.x is treated as double
+xxx.xf is treated as float
+xxxf is not treated as any type of number
+
+**in this project we do not consider l/L suffix to number
+
+normally int is not translated into float or double, as it may lead to precision loss. 
+	the int below 2^23 - 1 can be converted into float without lossing precision;
+	for double it is 2^53 - 1;
+
+	Example Code Demonstrating Precision Loss:
+
+	#include <iostream>
+	using namespace std;
+	
+	int main() {
+		int largeInt = 123456789;
+		float f = largeInt;       // Precision loss
+		double d = largeInt;      // No precision loss (typical int range)
+		
+		cout << "Original int: " << largeInt << endl;
+		cout << "Converted to float: " << f << endl;
+		cout << "Converted to double: " << d << endl;
+	
+		long long veryLargeInt = 1234567890123456789;
+		double d2 = veryLargeInt; // Precision loss for very large numbers
+		cout << "Very large int: " << veryLargeInt << endl;
+		cout << "Converted to double: " << d2 << endl;
+	
+		return 0;
+	}
+
+
+	Output:
+	Original int: 123456789
+	Converted to float: 123456792
+	Converted to double: 123456789
+	Very large int: 1234567890123456789
+	Converted to double: 1.23457e+18

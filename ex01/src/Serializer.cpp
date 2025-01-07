@@ -1,5 +1,24 @@
 #include "../include/Serializer.hpp"
 
+Serializer::Serializer() {
+    std::cout << "This class should not be instantiated\n";
+}
+
+Serializer::Serializer(Serializer &src) {
+    (void)src;
+    std::cout << "This class should not be instantiated\n";
+}
+
+Serializer &Serializer::operator=(Serializer &src) {
+    (void)src;
+    std::cout << "This class should not be instantiated\n";
+    return *this;
+}
+
+Serializer::~Serializer() {
+    std::cout << "This class should not be instantiated\n";
+}
+
 uintptr_t Serializer::serialize(Data* ptr) {
         return reinterpret_cast<uintptr_t>(ptr);
     }

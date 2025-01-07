@@ -2,8 +2,7 @@
 #include <iostream>
 #include <string>
 #include <cassert>
-
-typedef unsigned long uintptr_t;
+#include <stdint.h>
 
 // Non-empty Data structure
 struct Data {
@@ -15,6 +14,9 @@ struct Data {
 class Serializer {
 private:
     Serializer();
+    Serializer(Serializer &src);
+    Serializer &operator=(Serializer &src);
+    ~Serializer();
 
 public:
     // Serialize a Data pointer to uintptr_t

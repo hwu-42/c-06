@@ -7,10 +7,9 @@ public:
 
 private:
     ScalarConverter();
-    static char cv;
-    static int iv;
-    static float fv;
-    static double dv;
-    static int type;
+    ScalarConverter(ScalarConverter &src);
+    ScalarConverter &operator=(ScalarConverter &src);
+    ~ScalarConverter();
+
 };
 

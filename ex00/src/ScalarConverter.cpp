@@ -13,13 +13,34 @@
 #define NAN 6
 #define INVALID 7
 
-char ScalarConverter::cv;
-int ScalarConverter::iv;
-float ScalarConverter::fv;
-double ScalarConverter::dv;
-int ScalarConverter::type;
+
+
+ScalarConverter::ScalarConverter() {
+    std::cout << "This class should not be instantiated\n";
+}
+
+ScalarConverter::ScalarConverter(ScalarConverter &src) {
+    (void)src;
+    std::cout << "This class should not be instantiated\n";
+}
+
+ScalarConverter &ScalarConverter::operator=(ScalarConverter &src) {
+    (void)src;
+    std::cout << "This class should not be instantiated\n";
+    return *this;
+}
+
+ScalarConverter::~ScalarConverter() {
+    std::cout << "This class should not be instantiated\n";
+}
 
 void ScalarConverter::convert(const std::string& str) {
+    char cv;
+    int iv;
+    float fv;
+    double dv;
+    int type;
+
     if (str.length() == 0)
         type = INVALID;
     else if (str.length() == 1) {
@@ -80,7 +101,7 @@ void ScalarConverter::convert(const std::string& str) {
         return;
     }
     if (type == INT) {
-        if (iv < 0 || iv >127)
+        if (iv < std::numeric_limits<char>::min() || iv > std::numeric_limits<char>::max())
             std::cout << "char: impossible"<< std::endl;
         else if (!std::isprint(iv))
             std::cout << "char: Non displayable"<< std::endl;

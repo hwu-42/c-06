@@ -1,7 +1,5 @@
 
 #include <iostream>
-#include <sstream>
-#include <stdexcept>
 #include <string>
 #include "../include/ScalarConverter.hpp"
 
@@ -18,6 +16,15 @@ int main(void)
         "5.3f",
         "5.f",
         "23424f",
+        "+inff",
+        "-inff",
+        "inff",
+        "+inf",
+        "-inf",
+        "inf",
+        "nanf",
+        "nan",
+        "+nanf",
         "531234135412352554252.2f",
         "141342314233333444444444444444444444545.3f",
         "1413423142333334444444444444444444445454.3f",

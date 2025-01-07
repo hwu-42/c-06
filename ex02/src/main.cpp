@@ -10,7 +10,7 @@
 int main() {
     Base* obj;
     int i = 0;
-    while (i < 20) {
+    while (i < 200) {
         obj = generate();
         identify(obj);
         identify(*obj);

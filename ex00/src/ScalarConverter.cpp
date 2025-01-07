@@ -23,7 +23,7 @@ void ScalarConverter::convert(const std::string& str) {
     if (str.length() == 0)
         type = INVALID;
     else if (str.length() == 1) {
-        if (str[0] <= '0' || str[0] >= '9') {
+        if (str[0] < '0' || str[0] > '9') {
             type = CHAR;
             cv = str[0];
         }

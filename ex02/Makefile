@@ -1,4 +1,4 @@
-NAME		=	serializer
+NAME		=	identify
 
 CXX			=	c++
 
